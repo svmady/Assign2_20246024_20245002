@@ -5,7 +5,6 @@
 #include <cmath>
 #include <iomanip>
 
-// Include all header files
 #include "Enums.h"
 #include "FoodItem.h"
 #include "User.h"
@@ -16,9 +15,9 @@
 #include "file_operations.h"
 #include "binary_operations.h"
 
-using namespace std; // Explicitly included as requested
+using namespace std;
 
-// --- Helper Functions for Input Validation ---
+
 
 int getIntInput(const string& prompt) {
     int value;
@@ -50,8 +49,6 @@ string getStringInput(const string& prompt) {
     getline(cin, value);
     return value;
 }
-
-// --- Menu Display ---
 
 void displayMenu() {
     cout << "\n=================================================\n";
@@ -86,10 +83,8 @@ void displayMenu() {
     cout << "=================================================\n";
 }
 
-// --- Main Logic Function ---
-
 int main() {
-    // Dynamic array managers for collections
+
     DynamicArray<Customer*> customers;
     DynamicArray<DeliveryDriver*> drivers;
     DynamicArray<Order*> orders;
