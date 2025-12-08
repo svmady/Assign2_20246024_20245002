@@ -15,4 +15,4 @@ enum class UserType {
     DRIVER
 };
 
-#endif // ENUMS_H
+#endif

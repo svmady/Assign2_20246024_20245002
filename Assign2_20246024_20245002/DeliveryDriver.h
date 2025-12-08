@@ -11,23 +11,19 @@ private:
     double totalEarnings;
 
 public:
-    // Constructors
+
     DeliveryDriver();
     DeliveryDriver(const std::string& id, const std::string& n, const std::string& phone,
         const std::string& vehicle);
 
-    // Overridden Functions
     void displayInfo() const override;
     double calculateEarnings() const override;
 
-    // Core Methods
     void completeDelivery(double orderValue);
 
-    // Operator Overloading
-    DeliveryDriver& operator++();    // Prefix
-    DeliveryDriver operator++(int);  // Postfix
+    DeliveryDriver& operator++();
+    DeliveryDriver operator++(int);
 
-    // Getters
     std::string getVehicleType() const { return vehicleType; }
     int getCompletedDeliveries() const { return completedDeliveries; }
     double getTotalEarnings() const { return totalEarnings; }

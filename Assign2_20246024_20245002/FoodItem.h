@@ -18,7 +18,6 @@ public:
 	double getPrice() const { return price; }
 	int getQuantity() const { return quantity; }
 
-	// Declaration only here - definition lives in FoodItem.cpp
 	double calculateItemTotal() const;
 	void displayItem() const;
 };

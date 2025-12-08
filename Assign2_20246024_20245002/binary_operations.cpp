@@ -55,26 +55,21 @@ void loadOrderByPosition(int position, int numOrders) {
         return;
     }
 
-    // Start time measurement
     auto start = chrono::high_resolution_clock::now();
 
-    // Calculate the byte offset: O(1) calculation
     long offset = static_cast<long>(position) * sizeof(OrderRecord);
 
-    // Use seekg() to jump directly to the record: O(1) disk access
     file.seekg(offset, ios::beg);
 
     OrderRecord record;
     file.read(reinterpret_cast<char*>(&record), sizeof(OrderRecord));
 
-    // Stop time measurement
     auto end = chrono::high_resolution_clock::now();
 
     file.close();
 
     auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 
-    // Display results
     cout << "\n--- Binary Order Retrieval (O(1) Access) ---\n";
     cout << "Retrieving Order at Position (0-indexed): " << position << "\n";
     cout << "Order ID: " << record.orderId << "\n";
@@ -83,7 +78,6 @@ void loadOrderByPosition(int position, int numOrders) {
     cout << "Total: " << fixed << setprecision(2) << record.total << " EGP\n";
     cout << "Status: " << Order::statusToString(static_cast<OrderStatus>(record.status)) << "\n";
 
-    // Display time taken
     cout << "\n*** Time Taken (Proving O(1) Access): " << duration.count() << " nanoseconds ***\n";
     cout << "------------------------------------------------\n";
 }

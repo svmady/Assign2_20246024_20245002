@@ -268,7 +268,6 @@ int main() {
                 break;
             }
 
-                   // File Operations (Text)
             case 12: {
                 saveCompletedOrders(orders.getData(), orders.getSize());
                 break;
@@ -278,7 +277,6 @@ int main() {
                 break;
             }
 
-                   // Bonus Binary File Operations (O(1))
             case 14: {
                 if (orders.getSize() == 0) { cout << "Error: No orders to save.\n"; break; }
                 saveOrdersToBinary(orders.getData(), orders.getSize());
@@ -311,7 +309,6 @@ int main() {
 
     } while (choice != 17);
 
-    // Free all dynamic memory before exit
     cout << "\n--- Freeing Dynamic Memory ---\n";
     for (int i = 0; i < orders.getSize(); ++i) {
         delete orders[i];
